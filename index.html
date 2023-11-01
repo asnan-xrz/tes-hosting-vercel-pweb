@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana Agas</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            width: 70px;
+            margin-right: 10px;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+        }
+
+        .hasil {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center"> Agas Ananta Wijaya - 5027221004 </h1>
+        <div id="app" class="text-center">
+            <div class="mb-3">
+                <input v-model="angka1" type="number" class="form-control">
+                <input v-model="angka2" type="number" class="form-control">
+            </div>
+
+            <div>
+                <button @click="tambah" class="btn btn-primary">+</button>
+                <button @click="kurang" class="btn btn-primary">-</button>
+                <button @click="kali" class="btn btn-primary">*</button>
+                <button @click="bagi" class="btn btn-primary">/</button>
+            </div>
+
+            <div class="mt-3 hasil">
+                Hasil: {{ hasil }}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    angka1: 0,
+                    angka2: 0,
+                    hasil: 0
+                }
+            },
+            methods: {
+                tambah() {
+                    this.hasil = this.angka1 + this.angka2;
+                },
+                kurang() {
+                    this.hasil = this.angka1 - this.angka2;
+                },
+                kali() {
+                    this.hasil = this.angka1 * this.angka2;
+                },
+                bagi() {
+                    this.hasil = this.angka1 / this.angka2;
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
